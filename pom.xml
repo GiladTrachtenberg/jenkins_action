@@ -5,49 +5,39 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lidar</groupId>
-    <artifactId>leader-product</artifactId>
+    <artifactId>telemetry</artifactId>
     <version>99-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <properties>
-        <telemetry.version>99-SNAPSHOT</telemetry.version>
-        <analytics.version>99-SNAPSHOT</analytics.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.lidar</groupId>
-            <artifactId>telemetry</artifactId>
-            <version>${telemetry.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.lidar</groupId>
-            <artifactId>analytics</artifactId>
-            <version>${analytics.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+
+           <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
                 <configuration>
-                  <descriptors>
-                    <descriptor>src/assembly/product.xml</descriptor>
-                  </descriptors>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
                 </configuration>
-                <executions>
-                  <execution>
-                    <phase>package</phase>
-                    <goals>
-                      <goal>single</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
+            </plugin>
+
         </plugins>
-      </build>
+    </build>
     
 </project>
